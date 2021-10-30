@@ -3,8 +3,8 @@
 <p>
 </p>
 
-## Script to make backup copies of a mysql / mariadb database that is hosted in a docker container.
-## This script allows to ignore the databases that we do not want to save in the backup copy by adding it to the DBSKIPLIST list.
+# Script to make backup copies of a mysql / mariadb database that is hosted in a docker container.
+# This script allows to ignore the databases that we do not want to save in the backup copy by adding it to the DBSKIPLIST list.
 
 ## Example:
 ```sh
