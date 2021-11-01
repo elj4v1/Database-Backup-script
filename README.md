@@ -8,7 +8,7 @@ Allows to ignore the databases that we do not want to save in the backup copy by
 
 ## Example:
 ```sh
-## DBSKIPLIST="information_schema
+DBSKIPLIST="information_schema
 performance_schema
 mysql
 sys"
