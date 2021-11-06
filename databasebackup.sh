@@ -107,7 +107,7 @@ if [ ${?} -eq 0 ]; then
             done
          fi
          if [ "$skipdatabase" == "-1" ] ; then
-            FILE="$MBD/$db.sql"
+            FILE="$BKPSUBDIR/$db.sql"
             # Database dump
             mysqldumpdatabase $db $FILE
             if [ ${?} -eq 0 ]; then
