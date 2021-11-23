@@ -61,7 +61,7 @@ function mysqldumpdatabase (){
 }
 
  # Archive the directory
-function archivenow {
+function compressNow {
     cd "$BKPDBDIR/$YEAR/$MONTH"
     tar -cf $NOW.tar $NOW
     $GZIP -9 $NOW.tar
@@ -69,7 +69,7 @@ function archivenow {
 }
 
  # Archive the last month directory
-function archivelastmonth {
+function compressLastmonth {
     cd "$BKPDBDIR/$YEAR/"
     tar -cf $LASTMONTH.tar $LASTMONTH
     $GZIP -9 $LASTMONTH.tar
@@ -77,7 +77,7 @@ function archivelastmonth {
 }
 
  # Archive the last year directory
-function archivelastyear {
+function compressLastyear {
     cd "$BKPDBDIR"
     tar -cf $LASTYEAR.tar $LASTYEAR
     $GZIP -9 $LASTYEAR.tar
@@ -85,9 +85,9 @@ function archivelastyear {
 }
 
 function archivedirectory {
-    archivenow
-    [ -d "$BKPDBDIR/$YEAR/$LASTMONTH" ] && archivelastmonth || :
-    [ -d "$BKPDBDIR/$LASTYEAR" ] && archivelastyear || :
+    compressNow
+    [ -d "$BKPDBDIR/$YEAR/$LASTMONTH" ] && compressLastmonth || :
+    [ -d "$BKPDBDIR/$LASTYEAR" ] && compressLastyear || :
 }
 
 # Main
