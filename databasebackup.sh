@@ -60,7 +60,7 @@ function mysqldumpdatabase (){
     $MYSQLDUMP --force --opt -h $MyHOST -u $MyUSER -p$MyPASS --databases $1 > $2 2>/dev/null 1>/dev/null
 }
 
- # Archive the directory
+ # Compress the directory
 function compressNow {
     cd "$BKPDBDIR/$YEAR/$MONTH"
     tar -cf $NOW.tar $NOW
@@ -68,7 +68,7 @@ function compressNow {
     rm -rf $NOW
 }
 
- # Archive the last month directory
+ # Compress the last month directory
 function compressLastmonth {
     cd "$BKPDBDIR/$YEAR/"
     tar -cf $LASTMONTH.tar $LASTMONTH
@@ -76,7 +76,7 @@ function compressLastmonth {
     rm -rf $LASTMONTH
 }
 
- # Archive the last year directory
+ # Compress the last year directory
 function compressLastyear {
     cd "$BKPDBDIR"
     tar -cf $LASTYEAR.tar $LASTYEAR
@@ -84,6 +84,7 @@ function compressLastyear {
     rm -rf $LASTYEAR
 }
 
+# Compress directory function
 function archivedirectory {
     compressNow
     [ -d "$BKPDBDIR/$YEAR/$LASTMONTH" ] && compressLastmonth || :
